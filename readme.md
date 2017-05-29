@@ -33,6 +33,7 @@ let data = filter(noise(new Float32Array(1024)))
 * [ ] elliptical
 * [ ] linkwitz-riley
 * [ ] chebyshev
+* [ ] inverse-chebyshev
 * [ ] savitzky-golay
 * [ ] curve (custom f-curve)
 
