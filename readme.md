@@ -19,7 +19,7 @@ let data = filter(noise(new Float32Array(1024)))
 ## Filters
 
 * [x] [leaky integrator]()
-* [ ] [moving average]()
+* [x] [moving average]()
 * [ ] [biquad]()
 * [ ] [loudness]()
 * [ ] lowpass
@@ -37,9 +37,15 @@ let data = filter(noise(new Float32Array(1024)))
 * [ ] curve (custom f-curve)
 
 ### leakyIntegrator(samples, {lambda: 0.95, y: 0})
-
+<!--
 [FIR]
 
+[block scheme]
+
+[formula]
+
+[description]
+-->
 [Leaky integrator](https://en.wikipedia.org/wiki/Leaky_integrator).
 
 Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
@@ -62,8 +68,6 @@ for (let i = 0; i < 3; i++) {
 ```
 
 ### movingAverage(samples, {memory: 8})
-
-[FIR]
 
 [Moving average](https://en.wikipedia.org/wiki/Moving_average).
 
