@@ -1,4 +1,4 @@
-# digital-filter [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+# digital-filter [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](http://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/dfcreative/digital-filter.svg)](https://travis-ci.org/dfcreative/digital-filter)
 
 Collection of digital filters, for audio & dsp applications.
 
@@ -40,7 +40,9 @@ let data = filter(noise(new Float32Array(1024)))
 
 [FIR]
 
-[Leaky integrator](https://en.wikipedia.org/wiki/Leaky_integrator). Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
+[Leaky integrator](https://en.wikipedia.org/wiki/Leaky_integrator).
+
+Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
 
 Params:
 
@@ -50,7 +52,7 @@ Params:
 ```js
 let leaky = require('digital-filter/leaky-integrator')
 
-let opts = {lambda: .5, y: 0}
+let opts = {lambda: .5}
 
 //render 3 frames
 for (let i = 0; i < 3; i++) {
@@ -59,15 +61,29 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-### movingAverage(samples, {memory: 10, })
+### movingAverage(samples, {memory: 8})
 
 [FIR]
 
-[Moving average](https://en.wikipedia.org/wiki/Moving_average). Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
+[Moving average](https://en.wikipedia.org/wiki/Moving_average).
+
+Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
 
 Params:
 
-* memory − array with initial values of memory. If number, this will create an array of the size instead.
+* `memory` − array with initial values of memory. If number, this will create an array of that size.
+
+```js
+let ma = require('digital-filter/moving-average')
+
+//average of 5 items
+let opts = {memory: 5}
+
+for (let i = 0; i < 3; i++) {
+	let data = new Float32Array(1024)
+	ma(data, opts)
+}
+```
 
 ### loudness(data, {type: ''})
 

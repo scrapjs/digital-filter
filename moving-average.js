@@ -12,6 +12,7 @@ module.exports = function movingAverage (data, param) {
 
 	//init memory, if ptr is not defined
 	if (ptr == null) {
+		if (!mem) mem = 8
 		if (typeof mem === 'number') mem = Array(mem)
 		for (let i = 0; i < mem.length; i++) {
 			mem[i] = 0
