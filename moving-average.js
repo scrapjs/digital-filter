@@ -2,7 +2,7 @@
  * @module  digital-filter/moving-average
  */
 
-'use-strict'
+'use strict'
 
 const avg = require('average')
 
