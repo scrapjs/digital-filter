@@ -36,14 +36,16 @@ let data = filter(noise(new Float32Array(1024)))
 * [ ] savitzky-golay
 * [ ] curve (custom f-curve)
 
-### leakyIntegrator(data, {lambda: 0.95, y: 0})
+### leakyIntegrator(samples, {lambda: 0.95, y: 0})
 
 [FIR]
 
-[Leaky integrator](https://en.wikipedia.org/wiki/Leaky_integrator). Takes input array `data` and options, modifies array in-place. `y` is updated after processing.
+[Leaky integrator](https://en.wikipedia.org/wiki/Leaky_integrator). Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
 
-* `lambda` defines amount of "leak".
-* `y` keeps value of last sample.
+Params:
+
+* `lambda` − defines amount of "leak".
+* `y` − keeps value of last sample, updated after every call.
 
 ```js
 let leaky = require('digital-filter/leaky-integrator')
@@ -57,11 +59,15 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-### movingAverage(data, {memory: [], })
+### movingAverage(samples, {memory: 10, })
 
 [FIR]
 
+[Moving average](https://en.wikipedia.org/wiki/Moving_average). Takes input array `samples` and params object, modifies `samples` in-place. Params object should be shared between subsequent calls.
 
+Params:
+
+* memory − array with initial values of memory. If number, this will create an array of the size instead.
 
 ### loudness(data, {type: ''})
 

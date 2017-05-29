@@ -28,3 +28,16 @@ test('leaky', t => {
 
 	t.end()
 })
+
+
+test('movingAverage', t => {
+	let movingAverage = filter.movingAverage
+
+	let opts = {memory: 3}
+	let src = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+	let result = [0, 1/3, 1, 2, 3, 4, 5, 6, 7, 8]
+
+	t.ok(almost(movingAverage(src, opts), result))
+
+	t.end()
+})
