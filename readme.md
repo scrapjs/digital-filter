@@ -20,6 +20,7 @@ let data = filter(noise(new Float32Array(1024)))
 
 * [x] [leaky integrator]()
 * [x] [moving average]()
+* [ ] [bilinear]()
 * [ ] [biquad]()
 * [ ] [loudness]()
 * [ ] lowpass
@@ -89,6 +90,8 @@ for (let i = 0; i < 3; i++) {
 	ma(data, opts)
 }
 ```
+
+### bilinear(data, {order: 1, })
 
 ### loudness(data, {type: ''})
 
